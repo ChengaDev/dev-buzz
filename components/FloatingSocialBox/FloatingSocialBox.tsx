@@ -28,6 +28,10 @@ const Container = styled.div`
 	position: fixed;
 	top: 30%;
 	left: 0;
+
+	@media (max-width: 911px) {
+		display: none;
+	}
 `;
 
 export default FloatingSocialBox;

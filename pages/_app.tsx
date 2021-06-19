@@ -85,6 +85,11 @@ const MailingBox = styled.div`
 		width: 400px;
 		font-size: 30px;
 		outline: none;
+
+		@media (max-width: 910px) {
+			width: 300px;
+			font-size: 25px;
+		}
 	}
 `;
 
@@ -104,6 +109,10 @@ const SubNav = styled.div`
 		color: white;
 		display: block;
 		text-decoration: none;
+	}
+
+	@media (max-width: 911px) {
+		display: none;
 	}
 `;
 
@@ -147,4 +156,9 @@ const Content = styled.div`
 	min-height: calc(100vh - 56px);
 	overflow: auto;
 	padding-bottom: 50px;
+
+	@media (max-width: 910px) {
+		padding-bottom: 20px;
+		min-height: calc(100vh - 116px);
+	}
 `;
