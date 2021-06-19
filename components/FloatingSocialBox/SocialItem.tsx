@@ -9,7 +9,9 @@ interface SocialItemProps {
 const SocialItem = (props: SocialItemProps) => {
 	return (
 		<Container backgroundColor={props.item.backgroundColor}>
-			<i className={`fab fa-${props.item.iconName}`}></i>
+			<a target='_blank' href={props.item.url}>
+				<i className={`fab fa-${props.item.iconName}`}></i>
+			</a>
 		</Container>
 	);
 };
@@ -28,6 +30,11 @@ const Container = styled.div<ContainerProps>`
 	cursor: pointer;
 
 	i {
+		color: white;
+	}
+
+	a {
+		display: block;
 		color: white;
 	}
 `;

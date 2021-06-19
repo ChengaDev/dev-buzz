@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Localization from '../localization/pages/About';
 import Head from 'next/head';

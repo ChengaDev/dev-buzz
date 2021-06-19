@@ -20,8 +20,10 @@ const WritingMachineTitle = () => {
 			displayedTextRef.current = fullTxt.substring(0, displayedTextRef.current.length + 1);
 		}
 
-		// @ts-ignore: Object is possibly 'null'
-		textElementRef.current.innerHTML = '<span class="wrap">' + displayedTextRef.current + '</span>';
+		if (textElementRef.current) {
+			// @ts-ignore: Object is possibly 'null'
+			textElementRef.current.innerHTML = '<span class="wrap">' + displayedTextRef.current + '</span>';
+		}
 		let delta = 300 - Math.random() * 100;
 
 		if (isDeletingRef.current) {

@@ -23,7 +23,9 @@ const Home = () => {
 
 const PostsTitle = styled.div`
 	font-size: 20px;
-	margin-bottom: 10px;
+	margin-top: 30px;
+	margin-bottom: -15px;
+	text-align: center;
 `;
 
 const Container = styled.div`

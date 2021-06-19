@@ -11,17 +11,13 @@ const Footer = () => {
 };
 
 const Details = styled.div`
-	padding-left: 30px;
-	flex: 3;
+	text-align: center;
 	font-size: 20px;
 `;
 
 const BrandName = styled.div`
+	font-size: 25px;
 	text-align: center;
-	line-height: 180px;
-	font-size: 35px;
-	flex: 1;
-	border-right: 1px solid white;
 `;
 
 const Container = styled.footer`
@@ -31,8 +27,7 @@ const Container = styled.footer`
 	font-family: 'Raleway', sans-serif;
 	padding-top: 30px;
 	padding-bottom: 30px;
-	display: flex;
-	height: 240px;
+	height: 130px;
 	width: 100%;
 	background-color: #28465c;
 `;

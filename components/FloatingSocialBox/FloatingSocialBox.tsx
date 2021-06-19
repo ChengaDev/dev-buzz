@@ -4,9 +4,14 @@ import SocialItem from './SocialItem';
 import SocialLink from '../../models/SocialLink';
 
 const FloatingSocialBox = () => {
-	const facebookLink = new SocialLink('facebook-f', 'Facebook', '#4267B2');
-	const instagramLink = new SocialLink('instagram', 'Instagram', '#C13584');
-	const linkedinLink = new SocialLink('linkedin', 'LinkedIn', '#0072B1');
+	const facebookLink = new SocialLink('facebook-f', 'Facebook', '#4267B2', 'https://www.facebook.com/cgazit/');
+	const instagramLink = new SocialLink(
+		'instagram',
+		'Instagram',
+		'#C13584',
+		'https://www.instagram.com/chen_gazit88/'
+	);
+	const linkedinLink = new SocialLink('linkedin', 'LinkedIn', '#0072B1', 'https://www.linkedin.com/in/chengazit/');
 
 	return (
 		<Container>

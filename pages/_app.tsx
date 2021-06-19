@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import Head from 'next/head';
+import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Localization from '../localization/Layout';
 import NavBar from 'react-bootstrap/Navbar';
 import FloatingSocialBox from '../components/FloatingSocialBox/FloatingSocialBox';
 import Footer from '../components/Shared/Footer';
+import AppRoutes from '../configuration/AppRoutes';
 
 export default function App({ Component }) {
 	return (
@@ -28,10 +30,18 @@ export default function App({ Component }) {
 				<NavBar.Toggle aria-controls='basic-navbar-nav' />
 			</NavBar>
 			<SubNav>
-				<SubNavItem>Home</SubNavItem>
-				<SubNavItem>About</SubNavItem>
-				<SubNavItem>Posts</SubNavItem>
-				<SubNavItem>Contact</SubNavItem>
+				<SubNavItem>
+					<Link href={AppRoutes.Home}>Home</Link>
+				</SubNavItem>
+				<SubNavItem>
+					<Link href={AppRoutes.About}>About</Link>
+				</SubNavItem>
+				<SubNavItem>
+					<Link href={AppRoutes.Posts}>Posts</Link>
+				</SubNavItem>
+				<SubNavItem>
+					<Link href={AppRoutes.Contact}>Contact</Link>
+				</SubNavItem>
 			</SubNav>
 			<FloatingSocialBox />
 			<Content>
@@ -84,8 +94,14 @@ const SubNav = styled.div`
 	height: 120px;
 	line-height: 120px;
 	width: 100%;
-	color: white;
 	font-size: 30px;
+	color: white;
+
+	a {
+		color: white;
+		display: block;
+		text-decoration: none;
+	}
 `;
 
 const SubNavItem = styled.div`
