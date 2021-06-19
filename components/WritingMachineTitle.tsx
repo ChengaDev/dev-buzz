@@ -20,6 +20,7 @@ const WritingMachineTitle = () => {
 			displayedTextRef.current = fullTxt.substring(0, displayedTextRef.current.length + 1);
 		}
 
+		// @ts-ignore: Object is possibly 'null'
 		textElementRef.current.innerHTML = '<span class="wrap">' + displayedTextRef.current + '</span>';
 		let delta = 300 - Math.random() * 100;
 
@@ -48,8 +49,10 @@ const WritingMachineTitle = () => {
 			if (!element) {
 				return;
 			} else {
+				// @ts-ignore: Object is possibly 'null'.
 				let toRotateValue = element.getAttribute('data-rotate');
 				toRotateRef.current = JSON.parse(toRotateValue);
+				// @ts-ignore: Object is possibly 'null'.
 				let periodValue = element.getAttribute('data-period');
 				setPeriod(periodValue);
 				if (toRotateValue) {
