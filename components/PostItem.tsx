@@ -156,6 +156,12 @@ const PostDisplay = styled.div`
 
 const Container = styled.div`
 	width: 100%;
+
+	transition: transform 0.5s;
+
+	&:hover {
+		transform: scale(1.02);
+	}
 `;
 
 export default PostItem;
