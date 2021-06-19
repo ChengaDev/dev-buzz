@@ -7,8 +7,11 @@ import NavBar from 'react-bootstrap/Navbar';
 import FloatingSocialBox from '../components/FloatingSocialBox/FloatingSocialBox';
 import Footer from '../components/Shared/Footer';
 import AppRoutes from '../configuration/AppRoutes';
+import { useRouter } from 'next/router';
 
 export default function App({ Component }) {
+	const router = useRouter();
+
 	return (
 		<Layout>
 			<Head>
@@ -30,16 +33,16 @@ export default function App({ Component }) {
 				<NavBar.Toggle aria-controls='basic-navbar-nav' />
 			</NavBar>
 			<SubNav>
-				<SubNavItem>
+				<SubNavItem isSelected={router.pathname === AppRoutes.Home}>
 					<Link href={AppRoutes.Home}>Home</Link>
 				</SubNavItem>
-				<SubNavItem>
+				<SubNavItem isSelected={router.pathname === AppRoutes.About}>
 					<Link href={AppRoutes.About}>About</Link>
 				</SubNavItem>
-				<SubNavItem>
+				<SubNavItem isSelected={router.pathname === AppRoutes.Posts}>
 					<Link href={AppRoutes.Posts}>Posts</Link>
 				</SubNavItem>
-				<SubNavItem>
+				<SubNavItem isSelected={router.pathname === AppRoutes.Contact}>
 					<Link href={AppRoutes.Contact}>Contact</Link>
 				</SubNavItem>
 			</SubNav>
@@ -104,15 +107,20 @@ const SubNav = styled.div`
 	}
 `;
 
-const SubNavItem = styled.div`
+interface SubNavProps {
+	isSelected: boolean;
+}
+
+const SubNavItem = styled.div<SubNavProps>`
 	flex: 1;
 	text-align: center;
 	cursor: pointer;
 	transition: all 0.5s;
 
+	background: ${(props) => (props.isSelected ? 'orange' : 'inherit')};
+
 	&:hover {
 		background: orange;
-		color: black;
 	}
 `;
 
