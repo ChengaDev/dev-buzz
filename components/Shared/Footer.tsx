@@ -4,8 +4,10 @@ import styled from 'styled-components';
 const Footer = () => {
 	return (
 		<Container>
-			<BrandName>Dev-Buzz</BrandName>
-			<Details>All rights reserved 2021</Details>
+			<Details>All rights reserved 2021 - Chen Gazit</Details>
+			<LogoFooter>
+				<img src='/logo.png' alt='dev-buzz' />
+			</LogoFooter>
 		</Container>
 	);
 };
@@ -27,9 +29,19 @@ const Container = styled.footer`
 	font-family: 'Raleway', sans-serif;
 	padding-top: 30px;
 	padding-bottom: 30px;
-	height: 130px;
+	height: 140px;
 	width: 100%;
 	background-color: #28465c;
+`;
+
+const LogoFooter = styled.div`
+	text-align: center;
+	margin-top: 20px;
+
+	img {
+		height: 40px;
+		margin: 0 auto;
+	}
 `;
 
 export default Footer;

@@ -1,11 +1,14 @@
+import fs from 'fs';
 import React from 'react';
+import path from 'path';
+import matter from 'gray-matter';
 import Head from 'next/head';
 import styled from 'styled-components';
 import WritingMachineTitle from '../components/WritingMachineTitle';
 import PostItem from '../components/PostItem';
 import PostMetadata from '../models/PostMetadata';
 
-const Home = () => {
+export default function Home({ posts }) {
 	return (
 		<Container>
 			<Head>
@@ -14,31 +17,54 @@ const Home = () => {
 			<WritingMachineTitle />
 			<PostsTitle>Recent posts</PostsTitle>
 			<Content>
-				<PostItem
-					postMetadata={
-						new PostMetadata('Advanced Vanilla JS is for everyone', 'Chen Gazit', '/code', 'Mon, Jan 9', 5)
-					}
-				/>
-				<PostItem
-					postMetadata={
-						new PostMetadata('Lorem Ipsum dolor sit amet', 'Jason Derulo', '/code', 'Fri, Dev 15', 10)
-					}
-				/>
-				<PostItem
-					postMetadata={
-						new PostMetadata(
-							'Why KIA sportage in the best car in the world?',
-							'KIA Motors',
-							'/code',
-							'Tue, Sep 23',
-							4
-						)
-					}
-				/>
+				{posts?.map((post, index: number) => {
+					return (
+						<PostItem
+							key={`${post.frontmatter.title}_${index}`}
+							postMetadata={
+								new PostMetadata(
+									post.frontmatter.title,
+									post.frontmatter.author,
+									post.frontmatter.cover_image,
+									post.frontmatter.publish_date,
+									post.frontmatter.reading_time,
+									post.frontmatter.slug
+								)
+							}
+						/>
+					);
+				})}
 			</Content>
 		</Container>
 	);
-};
+}
+
+export async function getStaticProps() {
+	// get files from posts directory
+	const files = fs.readdirSync(path.join('posts'));
+
+	// get slug and matter from posts
+	const posts = files.map((filename) => {
+		// create slug
+		const slug = filename.replace('.md', '');
+		console.log(slug);
+
+		// get matter
+		const markDownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
+
+		const { data: frontmatter } = matter(markDownWithMeta);
+		console.log(frontmatter);
+		return { slug, frontmatter };
+	});
+
+	console.log(posts);
+
+	return {
+		props: {
+			posts: posts
+		}
+	};
+}
 
 const PostsTitle = styled.div`
 	font-size: 20px;
@@ -85,5 +111,3 @@ const Content = styled.div`
 		margin-top: 10px;
 	}
 `;
-
-export default Home;

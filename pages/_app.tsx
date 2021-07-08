@@ -9,7 +9,7 @@ import Footer from '../components/Shared/Footer';
 import AppRoutes from '../configuration/AppRoutes';
 import { useRouter } from 'next/router';
 
-export default function App({ Component }) {
+export default function App({ Component, pageProps }) {
 	const router = useRouter();
 
 	return (
@@ -29,7 +29,10 @@ export default function App({ Component }) {
 				/>
 			</Head>
 			<NavBar bg='dark' variant='dark'>
-				<NavBar.Brand href='/'>{Localization.brand}</NavBar.Brand>
+				<NavBar.Brand href='/'>
+					<img src='/logo.png' alt='dev-buzz' />
+				</NavBar.Brand>
+
 				<NavBar.Toggle aria-controls='basic-navbar-nav' />
 			</NavBar>
 			<SubNav>
@@ -42,13 +45,16 @@ export default function App({ Component }) {
 				<SubNavItem isSelected={router.pathname === AppRoutes.Posts}>
 					<Link href={AppRoutes.Posts}>Posts</Link>
 				</SubNavItem>
+				<SubNavItem isSelected={router.pathname === AppRoutes.Packages}>
+					<Link href={AppRoutes.Contact}>Packages</Link>
+				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Contact}>
 					<Link href={AppRoutes.Contact}>Contact</Link>
 				</SubNavItem>
 			</SubNav>
 			<FloatingSocialBox />
 			<Content>
-				<ComponentContainer>{<Component />}</ComponentContainer>
+				<ComponentContainer>{<Component {...pageProps} />}</ComponentContainer>
 			</Content>
 			<MailingBox>
 				<MailingBoxTitle>Join now to stay up to date</MailingBoxTitle>
@@ -99,8 +105,8 @@ const SubNav = styled.div`
 	padding-left: 100px;
 	display: flex;
 	background-color: #4267b2;
-	height: 120px;
-	line-height: 120px;
+	height: 100px;
+	line-height: 100px;
 	width: 100%;
 	font-size: 30px;
 	color: white;
@@ -145,6 +151,10 @@ const Layout = styled.div`
 
 	.navbar {
 		background: #6b92c9 !important;
+
+		img {
+			height: 55px;
+		}
 	}
 `;
 

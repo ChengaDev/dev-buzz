@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import PropsMetadata from '../models/PostMetadata';
 
 interface PostItemProps {
@@ -9,19 +10,21 @@ interface PostItemProps {
 const PostItem = (props: PostItemProps) => {
 	return (
 		<Container>
-			<PostDisplay>
-				<PostImage>
-					<img src='/code.jpg' alt='code' />
-				</PostImage>
-				<PostMetadata>
-					<PublishDate>{props.postMetadata.publishDate}</PublishDate>
-					<Author>
-						Published by <AuthorName>{props.postMetadata.author}</AuthorName>
-					</Author>
-					<PostTitle>{props.postMetadata.title}</PostTitle>
-					<ReadingTime>{props.postMetadata.readingTimeInMinutes} minutes read</ReadingTime>
-				</PostMetadata>
-			</PostDisplay>
+			<Link href={`/blog/${props.postMetadata.slug}`}>
+				<PostDisplay>
+					<PostImage>
+						<img src='/code.jpg' alt='code' />
+					</PostImage>
+					<PostMetadata>
+						<PublishDate>{props.postMetadata.publishDate}</PublishDate>
+						<Author>
+							Published by <AuthorName>{props.postMetadata.author}</AuthorName>
+						</Author>
+						<PostTitle>{props.postMetadata.title}</PostTitle>
+						<ReadingTime>{props.postMetadata.readingTimeInMinutes} minutes read</ReadingTime>
+					</PostMetadata>
+				</PostDisplay>
+			</Link>
 		</Container>
 	);
 };
