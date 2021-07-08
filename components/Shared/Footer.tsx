@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 const Footer = () => {
 	return (
 		<Container>
 			<Details>All rights reserved 2021 - Chen Gazit</Details>
 			<LogoFooter>
-				<Image height={35} width={90} src='/logo.png' alt='dev-buzz' />
+				<img src='/logo.png' alt='dev-buzz' />
 			</LogoFooter>
 		</Container>
 	);
@@ -40,7 +39,7 @@ const LogoFooter = styled.div`
 	margin-top: 20px;
 
 	img {
-		/* height: 40px; */
+		height: 40px;
 		margin: 0 auto;
 	}
 `;

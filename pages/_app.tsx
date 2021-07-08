@@ -4,7 +4,6 @@ import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Localization from '../localization/Layout';
 import NavBar from 'react-bootstrap/Navbar';
-import Image from 'next/image';
 import FloatingSocialBox from '../components/FloatingSocialBox/FloatingSocialBox';
 import Footer from '../components/Shared/Footer';
 import AppRoutes from '../configuration/AppRoutes';
@@ -31,7 +30,7 @@ export default function App({ Component, pageProps }) {
 			</Head>
 			<NavBar bg='dark' variant='dark'>
 				<NavBar.Brand href='/'>
-					<Image height={40} width={100} src='/logo.png' alt='dev-buzz' />
+					<img src='/logo.png' alt='dev-buzz' />
 				</NavBar.Brand>
 
 				<NavBar.Toggle aria-controls='basic-navbar-nav' />
@@ -152,11 +151,10 @@ const Layout = styled.div`
 
 	.navbar {
 		background: #6b92c9 !important;
-	}
 
-	a {
-		margin: 0;
-		padding-bottom: 0;
+		img {
+			height: 55px;
+		}
 	}
 `;
 
