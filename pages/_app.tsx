@@ -113,7 +113,7 @@ const MailingBox = styled.div`
 			width: 75px;
 			font-size: 16px;
 			line-height: 16px;
-			margin-top: 5px;
+			margin-top: 6px;
 		}
 	}
 `;
