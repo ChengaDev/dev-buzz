@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
 import Localization from '../localization/Layout';
 import NavBar from 'react-bootstrap/Navbar';
 import FloatingSocialBox from '../components/FloatingSocialBox/FloatingSocialBox';
@@ -27,6 +28,16 @@ export default function App({ Component, pageProps }) {
 					integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p'
 					crossOrigin='anonymous'
 				/>
+				<script
+					src='https://js.api.here.com/v3/3.1/mapsjs-core.js'
+					type='text/javascript'
+					charset='utf-8'
+				></script>
+				<script
+					src='https://js.api.here.com/v3/3.1/mapsjs-service.js'
+					type='text/javascript'
+					charset='utf-8'
+				></script>
 			</Head>
 			<NavBar bg='dark' variant='dark'>
 				<NavBar.Brand href='/'>
@@ -46,7 +57,7 @@ export default function App({ Component, pageProps }) {
 					<Link href={AppRoutes.Posts}>Posts</Link>
 				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Packages}>
-					<Link href={AppRoutes.Contact}>Packages</Link>
+					<Link href={AppRoutes.Packages}>Packages</Link>
 				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Contact}>
 					<Link href={AppRoutes.Contact}>Contact</Link>
@@ -60,6 +71,7 @@ export default function App({ Component, pageProps }) {
 				<MailingBoxTitle>Join now to stay up to date</MailingBoxTitle>
 				<div>
 					<input placeholder='Enter your Email' />
+					<Button variant='primary'>Join!</Button>
 				</div>
 			</MailingBox>
 
@@ -96,6 +108,17 @@ const MailingBox = styled.div`
 			width: 300px;
 			font-size: 25px;
 		}
+	}
+
+	button {
+		height: 50px;
+		width: 100px;
+		font-size: 20px;
+		margin-bottom: 12px;
+		border-radius: 0 20px 20px 0;
+		margin-left: -25px;
+		background: #6b92c9;
+		border: none;
 	}
 `;
 
