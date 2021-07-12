@@ -17,7 +17,12 @@ const Contact = () => {
 					</FormContainer>
 					<ContactMethodsContainer className='col-sm-12 col-md-6'>
 						<ContactMeText>
-							<HereMap lng={34.870766} lat={32.184448} />
+							<HereMap
+								lng={34.870766}
+								lat={32.184448}
+								zoom={8}
+								apiKey={process.env.NEXT_PUBLIC_HERE_MAPS_API_KEY}
+							/>
 						</ContactMeText>
 						<EmailContactMethod>
 							<div>You can also reach me at</div>
