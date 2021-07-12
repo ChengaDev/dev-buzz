@@ -17,11 +17,6 @@ const Details = styled.div`
 	font-size: 20px;
 `;
 
-const BrandName = styled.div`
-	font-size: 25px;
-	text-align: center;
-`;
-
 const Container = styled.footer`
 	color: #e0ced3;
 	padding-left: 20%;
@@ -32,6 +27,10 @@ const Container = styled.footer`
 	height: 140px;
 	width: 100%;
 	background-color: #28465c;
+
+	@media (max-width: 768px) {
+		height: 180px;
+	}
 `;
 
 const LogoFooter = styled.div`

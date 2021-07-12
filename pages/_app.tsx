@@ -108,6 +108,13 @@ const MailingBox = styled.div`
 			width: 300px;
 			font-size: 25px;
 		}
+
+		@media (max-width: 411px) {
+			height: 40px;
+			width: 250px;
+			font-size: 16px;
+			line-height: 16px;
+		}
 	}
 
 	button {
@@ -119,6 +126,23 @@ const MailingBox = styled.div`
 		margin-left: -25px;
 		background: #6b92c9;
 		border: none;
+
+		@media (max-width: 910px) {
+			margin-bottom: 10px;
+		}
+
+		@media (max-width: 768px) {
+			height: 51px;
+			margin-bottom: 9px;
+		}
+
+		@media (max-width: 411px) {
+			height: 40px;
+			width: 75px;
+			font-size: 16px;
+			line-height: 16px;
+			margin-top: 5px;
+		}
 	}
 `;
 

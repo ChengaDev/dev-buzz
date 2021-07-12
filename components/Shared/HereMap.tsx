@@ -5,6 +5,7 @@ interface HereMapProps {
 	zoom: number;
 	lng: number;
 	lat: number;
+	height: string;
 }
 
 const HereMap = (props: HereMapProps) => {
@@ -13,7 +14,7 @@ const HereMap = (props: HereMapProps) => {
 	useEffect(() => {
 		// @ts-ignore
 		var platform = new H.service.Platform({
-			apikey: process.env.NEXT_PUBLIC_HERE_MAPS_API_KEY
+			apikey: props.apiKey
 		});
 
 		var maptypes = platform.createDefaultLayers();
@@ -25,7 +26,7 @@ const HereMap = (props: HereMapProps) => {
 		});
 	}, []);
 
-	return <div style={{ height: '340px', width: '100%' }} id='mapContainer' ref={mapRef}></div>;
+	return <div style={{ height: props.height, width: '100%' }} id='mapContainer' ref={mapRef}></div>;
 };
 
 export default HereMap;

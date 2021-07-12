@@ -22,6 +22,7 @@ const Contact = () => {
 								lat={32.184448}
 								zoom={8}
 								apiKey={process.env.NEXT_PUBLIC_HERE_MAPS_API_KEY}
+								height='340px'
 							/>
 						</ContactMeText>
 						<EmailContactMethod>
@@ -53,7 +54,7 @@ const ContactMethodsContainer = styled.div`
 	padding-left: 15px;
 	padding-right: 15px;
 
-	@media only screen and (max-width: 768px) {
+	@media (max-width: 767px) {
 		padding-left: 0;
 		padding-right: 0;
 	}
