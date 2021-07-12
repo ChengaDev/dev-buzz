@@ -1,18 +1,13 @@
 import styled from 'styled-components';
 import Head from 'next/head';
-import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import Localization from '../localization/Layout';
-import NavBar from 'react-bootstrap/Navbar';
 import FloatingSocialBox from '../components/FloatingSocialBox/FloatingSocialBox';
 import Footer from '../components/Shared/Footer';
-import AppRoutes from '../configuration/AppRoutes';
-import { useRouter } from 'next/router';
+import Navigation from '../components/Shared/Navigation';
 
 export default function App({ Component, pageProps }) {
-	const router = useRouter();
-
 	return (
 		<Layout>
 			<Head>
@@ -39,30 +34,7 @@ export default function App({ Component, pageProps }) {
 					charSet='utf-8'
 				></script>
 			</Head>
-			<NavBar bg='dark' variant='dark'>
-				<NavBar.Brand href='/'>
-					<img src='/logo.png' alt='dev-buzz' />
-				</NavBar.Brand>
-
-				<NavBar.Toggle aria-controls='basic-navbar-nav' />
-			</NavBar>
-			<SubNav>
-				<SubNavItem isSelected={router.pathname === AppRoutes.Home}>
-					<Link href={AppRoutes.Home}>Home</Link>
-				</SubNavItem>
-				<SubNavItem isSelected={router.pathname === AppRoutes.About}>
-					<Link href={AppRoutes.About}>About</Link>
-				</SubNavItem>
-				<SubNavItem isSelected={router.pathname === AppRoutes.Posts}>
-					<Link href={AppRoutes.Posts}>Posts</Link>
-				</SubNavItem>
-				<SubNavItem isSelected={router.pathname === AppRoutes.Packages}>
-					<Link href={AppRoutes.Packages}>Packages</Link>
-				</SubNavItem>
-				<SubNavItem isSelected={router.pathname === AppRoutes.Contact}>
-					<Link href={AppRoutes.Contact}>Contact</Link>
-				</SubNavItem>
-			</SubNav>
+			<Navigation />
 			<FloatingSocialBox />
 			<Content>
 				<ComponentContainer>{<Component {...pageProps} />}</ComponentContainer>
@@ -143,46 +115,6 @@ const MailingBox = styled.div`
 			line-height: 16px;
 			margin-top: 5px;
 		}
-	}
-`;
-
-const SubNav = styled.div`
-	font-family: 'Staatliches', cursive;
-	padding-right: 100px;
-	padding-left: 100px;
-	display: flex;
-	background-color: #4267b2;
-	height: 100px;
-	line-height: 100px;
-	width: 100%;
-	font-size: 30px;
-	color: white;
-
-	a {
-		color: white;
-		display: block;
-		text-decoration: none;
-	}
-
-	@media (max-width: 911px) {
-		display: none;
-	}
-`;
-
-interface SubNavProps {
-	isSelected: boolean;
-}
-
-const SubNavItem = styled.div<SubNavProps>`
-	flex: 1;
-	text-align: center;
-	cursor: pointer;
-	transition: all 0.5s;
-
-	background: ${(props) => (props.isSelected ? 'orange' : 'inherit')};
-
-	&:hover {
-		background: orange;
 	}
 `;
 
