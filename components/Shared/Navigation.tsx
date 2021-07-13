@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import AppRoutes from '../../configuration/AppRoutes';
 import Link from 'next/link';
@@ -8,10 +8,24 @@ import MobileNavigationMenu from './MobileNavigationMenu';
 const Navigation = () => {
 	const router = useRouter();
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [scrolledAboveHeader, setScrolledAboveHeader] = useState(false);
 
 	const handleHamburgerClick = useCallback(() => {
 		setIsMobileMenuOpen(!isMobileMenuOpen);
 	}, [isMobileMenuOpen]);
+
+	const handleScroll = useCallback(() => {
+		if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+			setScrolledAboveHeader(true);
+		} else {
+			setScrolledAboveHeader(false);
+		}
+	}, []);
+
+	useEffect(() => {
+		document.addEventListener('scroll', handleScroll);
+		return () => document.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	return (
 		<>
@@ -26,7 +40,7 @@ const Navigation = () => {
 				isOpen={isMobileMenuOpen}
 				currentRoute={router.pathname}
 			/>
-			<SubNav>
+			<SubNav shrinked={scrolledAboveHeader}>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Home}>
 					<Link href={AppRoutes.Home}>Home</Link>
 				</SubNavItem>
@@ -74,15 +88,15 @@ const MobileMenuIcon = styled.div`
 	}
 `;
 
-interface SubNavProps {
+interface SubNavItemProps {
 	isSelected: boolean;
 }
 
-const SubNavItem = styled.div<SubNavProps>`
+const SubNavItem = styled.div<SubNavItemProps>`
 	flex: 1;
 	text-align: center;
 	cursor: pointer;
-	transition: all 0.5s;
+	transition: max-height 0.5s;
 
 	background: ${(props) => (props.isSelected ? 'orange' : 'inherit')};
 
@@ -91,20 +105,26 @@ const SubNavItem = styled.div<SubNavProps>`
 	}
 `;
 
-const SubNav = styled.div`
+interface SubNavProps {
+	shrinked: boolean;
+}
+
+const SubNav = styled.div<SubNavProps>`
 	font-family: 'Staatliches', cursive;
 	padding-right: 100px;
 	padding-left: 100px;
 	display: flex;
 	background-color: #4267b2;
-	height: 100px;
-	line-height: 100px;
 	width: 100%;
-	font-size: 30px;
+	max-height: ${(props) => (props.shrinked ? '60px' : '100px')};
+	line-height: ${(props) => (props.shrinked ? '60px' : '100px')};
+	font-size: ${(props) => (props.shrinked ? '20px' : '30px')};
 	color: white;
 	position: sticky;
 	top: 80px;
 	z-index: 10;
+
+	transition: all 0.25s ease;
 
 	a {
 		color: white;
