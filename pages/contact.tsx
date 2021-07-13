@@ -55,8 +55,8 @@ const ContactMethodsContainer = styled.div`
 	padding-right: 15px;
 
 	@media (max-width: 767px) {
-		padding-left: 0;
-		padding-right: 0;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 `;
 
