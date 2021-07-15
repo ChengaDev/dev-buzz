@@ -1,0 +1,18 @@
+[
+	{
+		"name": "react-component-tracker",
+		"npm_url": "https://www.npmjs.com/package/react-component-tracker",
+		"repo_url": "https://github.com/ChengaDev/react-component-tracker",
+		"author": "Chen Gazit",
+		"lisence": "MIT",
+		"description": "This package allows you to easily track you react components props, without adding any log lines, dubeggers or breaking points, but with very short configuration, and has no effect on prodution environment, so you don't have to be worried about forgetting some debugging code before deploy."
+	},
+	{
+		"name": "shot-clock-simulator",
+		"url": "https://www.24shotclock.com/",
+		"repo_url": "https://github.com/ChengaDev/shotclock",
+		"author": "Chen Gazit",
+		"lisence": "MIT",
+		"description": "This is a simulator for operating the 24 shot clock in basketball games. Let's you to practice while watching a baketball game to TV, updated to the latest rules of FIBA."
+	}
+]

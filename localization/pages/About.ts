@@ -1,3 +1,3 @@
 export default {
-	title: 'About the Author'
+	title: 'About'
 };

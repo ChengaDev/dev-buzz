@@ -15,7 +15,7 @@ const Navigation = () => {
 	}, [isMobileMenuOpen]);
 
 	const handleScroll = useCallback(() => {
-		if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+		if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
 			setScrolledAboveHeader(true);
 		} else {
 			setScrolledAboveHeader(false);
@@ -124,7 +124,7 @@ const SubNav = styled.div<SubNavProps>`
 	top: 80px;
 	z-index: 10;
 
-	transition: all 0.25s ease;
+	transition: all 0.15s ease-in-out;
 
 	a {
 		color: white;
