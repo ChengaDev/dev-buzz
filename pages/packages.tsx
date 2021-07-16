@@ -18,8 +18,8 @@ const Packages = (props: PackagesPageProps) => {
 			</Head>
 			<Container className='container'>
 				<h1>Open source packages & projects</h1>
-				{props.packages.map((packageItem) => {
-					return <PackageDisplay package={packageItem} />;
+				{props.packages.map((packageItem, index) => {
+					return <PackageDisplay key={`package_${index}`} package={packageItem} />;
 				})}
 			</Container>
 		</>

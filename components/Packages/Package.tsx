@@ -10,6 +10,11 @@ const PackageDisplay = (props: PackageDisplayProps) => {
 
 	return (
 		<Container>
+			<PackageName>{props.package.name}</PackageName>
+			<PackageDescription>{props.package.description}</PackageDescription>
+			<Author>
+				Author: <strong>{props.package.author}</strong>
+			</Author>
 			<Links>
 				{url && (
 					<a target='_blank' href={url}>
@@ -25,27 +30,19 @@ const PackageDisplay = (props: PackageDisplayProps) => {
 					<i className='fab fa-github'></i>
 				</a>
 			</Links>
-			<PackageName>{props.package.name}</PackageName>
-			<PackageDescription>{props.package.description}</PackageDescription>
-			<Author>
-				Author: <strong>{props.package.author}</strong>
-			</Author>
 		</Container>
 	);
 };
 
 const Links = styled.div`
-	position: absolute;
-	top: 30px;
-	right: 30px;
-
-	@media screen and (max-width: 768px) {
-		top: 40px;
-	}
+	margin-top: 30px;
+	position: relative;
+	bottom: 0;
+	left: 0;
 
 	i {
 		font-size: 30px;
-		margin-left: 20px;
+		margin-right: 20px;
 		color: gray;
 
 		@media screen and (max-width: 768px) {
