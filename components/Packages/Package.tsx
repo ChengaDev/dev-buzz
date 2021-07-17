@@ -75,7 +75,7 @@ const Container = styled.div`
 	margin-bottom: 30px;
 	display: flex;
 	flex-direction: column;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 30px;
 `;
 

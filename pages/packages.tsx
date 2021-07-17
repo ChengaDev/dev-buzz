@@ -10,7 +10,6 @@ interface PackagesPageProps {
 }
 
 const Packages = (props: PackagesPageProps) => {
-	console.log(props);
 	return (
 		<>
 			<Head>

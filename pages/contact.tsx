@@ -74,7 +74,7 @@ const EmailContactMethod = styled(ContactMethodBox)`
 	height: 200px;
 	padding-top: 65px;
 	cursor: pointer;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	margin-top: 15px;
 `;
 
@@ -84,7 +84,7 @@ const ContactMeText = styled(ContactMethodBox)`
 
 const FormContainer = styled.div`
 	padding: 30px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 0px;
 	background-color: white;
 	margin-bottom: 15px;
