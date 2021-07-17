@@ -115,7 +115,7 @@ const BoxTitle = styled.div`
 
 const Content = styled.div`
 	font-size: 20px;
-	margin-top: 50px;
+	margin-top: 30px;
 `;
 
 const Container = styled.div`
