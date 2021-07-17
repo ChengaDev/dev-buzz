@@ -14,7 +14,7 @@ const About = () => {
 					<i>"The best way to learn is by teaching someone else"</i>
 				</h2>
 				<ImageContainer>
-					<img src='/personalImage.png' alt='Chen gazit' />
+					<img src='/chen.png' alt='Chen gazit' />
 				</ImageContainer>
 				<Content>
 					<div className='row'>
