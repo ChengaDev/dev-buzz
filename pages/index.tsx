@@ -1,11 +1,9 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import Head from 'next/head';
 import styled from 'styled-components';
 import WritingMachineTitle from '../components/WritingMachineTitle';
 import PostItem from '../components/Shared/PostItem';
 import PostMetadata from '../models/PostMetadata';
+import postsApi from '../api/posts';
 
 export default function Home({ posts }) {
 	return (
@@ -40,27 +38,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-	// get files from posts directory
-	const files = fs.readdirSync(path.join('posts'));
-
-	// get slug and matter from posts
-	const posts = files.map((filename) => {
-		// create slug
-		const slug = filename.replace('.md', '');
-
-		// get matter
-		const markDownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-
-		const { data: frontmatter } = matter(markDownWithMeta);
-
-		return { slug, frontmatter };
-	});
-
-	return {
-		props: {
-			posts: posts
-		}
-	};
+	return postsApi.getPostsMetadata();
 }
 
 const PostsTitle = styled.div`
