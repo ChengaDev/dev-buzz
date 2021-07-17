@@ -1,5 +1,4 @@
 import fs from 'fs';
-import React from 'react';
 import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';

@@ -53,9 +53,11 @@ const About = () => {
 							<BoxInner>
 								<BoxTitle>The Author</BoxTitle>
 								<div>
-									My name is Chen, I live in Raanana, Israel. I currently work as a full-stack
-									developer in OwnBackup. I am passionate about frontend, loves open source and
-									Javascript.
+									My name is Chen, I live in Raanana, Israel.
+									<br />
+									I currently work as a full-stack developer in a startup called OwnBackup.
+									<br />
+									I am passionate about frontend, loves open source and Javascript.
 									<br />
 									In my free time I love to drum, and to operate the 24 shot clock in the Israel
 									premier basketball league games.
@@ -64,12 +66,14 @@ const About = () => {
 						</Box>
 					</div>
 					<div className='row'>
-						<Box className='col-sm-6' marginTop='-115px'>
+						<Box className='col-sm-6' marginTop='-145px'>
 							<BoxInner>
 								<BoxTitle>Suggetions?</BoxTitle>
 								<div>
-									Hell yeah! Any suggestion or feedback is received with love. Feel free to contact me
-									via the contact page or via <strong>gazit.chen@gmail.com</strong>
+									Hell yeah! Any suggestion or feedback is received with love.
+									<br />
+									Feel free to contact me via the contact page or via{' '}
+									<strong>gazit.chen@gmail.com</strong>
 								</div>
 							</BoxInner>
 						</Box>
