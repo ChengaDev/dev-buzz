@@ -1,9 +1,9 @@
-import fs from 'fs';
-import path from 'path';
+import packagesApi from 'api/packages';
 import Head from 'next/head';
 import styled from 'styled-components';
-import Package from '../models/Package';
-import PackageDisplay from '../components/Packages/Package';
+import Package from 'models/Package';
+import PackageDisplay from 'components/Packages/Package';
+import MetaTitleLocalization from 'localization/MetaTitles';
 
 interface PackagesPageProps {
 	packages: Array<Package>;
@@ -13,12 +13,12 @@ const Packages = (props: PackagesPageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Dev-Buzz | Open source packages and projects</title>
+				<title>{MetaTitleLocalization.baseTitle.replace('{pageTitle}', MetaTitleLocalization.packages)}</title>
 			</Head>
 			<Container className='container'>
 				<h1>Open source packages & projects</h1>
-				{props.packages.map((packageItem, index) => {
-					return <PackageDisplay key={`package_${index}`} package={packageItem} />;
+				{props.packages.map((packageItem) => {
+					return <PackageDisplay key={packageItem.name} package={packageItem} />;
 				})}
 			</Container>
 		</>
@@ -35,13 +35,7 @@ const Container = styled.div`
 `;
 
 export async function getStaticProps() {
-	const packages = JSON.parse(fs.readFileSync(path.join('packages/packages.json'), 'utf-8'));
-
-	return {
-		props: {
-			packages
-		}
-	};
+	return packagesApi.getPackages();
 }
 
 export default Packages;

@@ -1,3 +1,5 @@
 export default {
-	title: 'About'
+	title: 'About',
+	subtitle: 'The best way to learn is by teaching someone else',
+	metaTitle: ''
 };

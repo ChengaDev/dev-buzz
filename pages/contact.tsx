@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import Head from 'next/head';
-import ContactForm from '../components/Contact/ContactForm';
-import HereMap from '../components/Shared/HereMap';
+import ContactForm from 'components/Contact/ContactForm';
+import HereMap from 'components/Shared/HereMap';
+import MetaTitleLocalization from 'localization/MetaTitles';
 
 const Contact = () => {
 	return (
 		<Container>
 			<Head>
-				<title>Dev-Buzz | Contact</title>
+				<title>{MetaTitleLocalization.baseTitle.replace('{pageTitle}', MetaTitleLocalization.contact)}</title>
 			</Head>
 			<div>
 				<h1>Contact us</h1>

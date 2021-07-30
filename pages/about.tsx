@@ -1,17 +1,18 @@
 import styled from 'styled-components';
-import Localization from '../localization/pages/About';
 import Head from 'next/head';
+import Localization from 'localization/pages/About';
+import MetaTitleLocalization from 'localization/MetaTitles';
 
 const About = () => {
 	return (
 		<>
 			<Head>
-				<title>Dev-Buzz | About Chen Gazit</title>
+				<title>{MetaTitleLocalization.baseTitle.replace('{pageTitle}', MetaTitleLocalization.about)}</title>
 			</Head>
 			<Container className='container'>
 				<h1>{Localization.title}</h1>
 				<h2>
-					<i>"The best way to learn is by teaching someone else"</i>
+					<i>"{Localization.subtitle}"</i>
 				</h2>
 				<ImageContainer>
 					<img src='/chen.png' alt='Chen gazit' />

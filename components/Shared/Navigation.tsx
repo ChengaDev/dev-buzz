@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-import AppRoutes from '../../configuration/AppRoutes';
+import AppRoutes from 'configuration/AppRoutes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import MobileNavigationMenu from './MobileNavigationMenu';
+import Localization from 'localization/components/Shared/Navigation';
 
 const Navigation = () => {
 	const router = useRouter();
@@ -42,19 +43,19 @@ const Navigation = () => {
 			/>
 			<SubNav shrinked={scrolledAboveHeader}>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Home}>
-					<Link href={AppRoutes.Home}>Home</Link>
+					<Link href={AppRoutes.Home}>{Localization.home}</Link>
 				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.About}>
-					<Link href={AppRoutes.About}>About</Link>
+					<Link href={AppRoutes.About}>{Localization.about}</Link>
 				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Posts}>
-					<Link href={AppRoutes.Posts}>Posts</Link>
+					<Link href={AppRoutes.Posts}>{Localization.posts}</Link>
 				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Packages}>
-					<Link href={AppRoutes.Packages}>Packages</Link>
+					<Link href={AppRoutes.Packages}>{Localization.packages}</Link>
 				</SubNavItem>
 				<SubNavItem isSelected={router.pathname === AppRoutes.Contact}>
-					<Link href={AppRoutes.Contact}>Contact</Link>
+					<Link href={AppRoutes.Contact}>{Localization.contact}</Link>
 				</SubNavItem>
 			</SubNav>
 		</>

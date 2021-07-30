@@ -1,17 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import SocialItem from './SocialItem';
-import SocialLink from '../../models/SocialLink';
+import SocialLink from 'models/SocialLink';
+import Localization from 'localization/components/FloatingSocialBox/FloatingSocialBox';
 
 const FloatingSocialBox = () => {
-	const facebookLink = new SocialLink('facebook-f', 'Facebook', '#4267B2', 'https://www.facebook.com/cgazit/');
+	const facebookLink = new SocialLink(
+		'facebook-f',
+		Localization.facebookDisplayText,
+		'#4267B2',
+		'https://www.facebook.com/cgazit/'
+	);
 	const instagramLink = new SocialLink(
 		'instagram',
-		'Instagram',
+		Localization.instagramDisplayText,
 		'#C13584',
 		'https://www.instagram.com/chen_gazit88/'
 	);
-	const linkedinLink = new SocialLink('linkedin', 'LinkedIn', '#0072B1', 'https://www.linkedin.com/in/chengazit/');
+	const linkedinLink = new SocialLink(
+		'linkedin',
+		Localization.linkedinDisplayText,
+		'#0072B1',
+		'https://www.linkedin.com/in/chengazit/'
+	);
 
 	return (
 		<Container>

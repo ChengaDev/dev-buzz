@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Package from '../../models/Package';
+import Package from 'models/Package';
 
 interface PackageDisplayProps {
 	package: Package;

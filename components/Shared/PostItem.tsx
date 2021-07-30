@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import PostMetadata from '../../models/PostMetadata';
+import PostMetadata from 'models/PostMetadata';
 import Link from 'next/link';
+import Localization from 'localization/components/Shared/PostItem';
 
 interface PostItemProps {
 	post: PostMetadata;
@@ -17,7 +18,9 @@ const PostItem = (props: PostItemProps) => {
 					<PostDetails>
 						<PostName>{post.title}</PostName>
 						<PostDescription>{post.description}</PostDescription>
-						<ReadingTime>{`${post.readingTimeInMinutes} minutes read`}</ReadingTime>
+						<ReadingTime>
+							{Localization.readingTimeText.replace('{time}', post.readingTimeInMinutes.toString())}
+						</ReadingTime>
 						<PublishDetails>
 							<AuthorName>{post.author}</AuthorName>
 							<PublishDate>{post.publishDate}</PublishDate>

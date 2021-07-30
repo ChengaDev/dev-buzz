@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import Localization from '../localization/Layout';
-import FloatingSocialBox from '../components/FloatingSocialBox/FloatingSocialBox';
-import Footer from '../components/Shared/Footer';
-import Navigation from '../components/Shared/Navigation';
+import Localization from 'localization/Layout';
+import FloatingSocialBox from 'components/FloatingSocialBox/FloatingSocialBox';
+import Footer from 'components/Shared/Footer';
+import Navigation from 'components/Shared/Navigation';
 
 export default function App({ Component, pageProps }) {
 	return (

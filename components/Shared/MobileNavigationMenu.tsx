@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import AppRoutes from '../../configuration/AppRoutes';
+import AppRoutes from 'configuration/AppRoutes';
 import Link from 'next/link';
+import Localization from 'localization/components/Shared/Navigation';
 
 interface MobileNavigationMenuProps {
 	currentRoute: string;
@@ -12,19 +13,19 @@ const MobileNavigationMenu = (props: MobileNavigationMenuProps) => {
 	return (
 		<Container isOpen={props.isOpen}>
 			<NavOption onClick={props.onSelect} isSelected={props.currentRoute === AppRoutes.Home}>
-				<Link href={AppRoutes.Home}>Home</Link>
+				<Link href={AppRoutes.Home}>{Localization.home}</Link>
 			</NavOption>
 			<NavOption onClick={props.onSelect} isSelected={props.currentRoute === AppRoutes.About}>
-				<Link href={AppRoutes.About}>About</Link>
+				<Link href={AppRoutes.About}>{Localization.about}</Link>
 			</NavOption>
 			<NavOption onClick={props.onSelect} isSelected={props.currentRoute === AppRoutes.Posts}>
-				<Link href={AppRoutes.Posts}>Posts</Link>
+				<Link href={AppRoutes.Posts}>{Localization.posts}</Link>
 			</NavOption>
 			<NavOption onClick={props.onSelect} isSelected={props.currentRoute === AppRoutes.Packages}>
-				<Link href={AppRoutes.Packages}>Packages</Link>
+				<Link href={AppRoutes.Packages}>{Localization.packages}</Link>
 			</NavOption>
 			<NavOption onClick={props.onSelect} isSelected={props.currentRoute === AppRoutes.Contact}>
-				<Link href={AppRoutes.Contact}>Contact</Link>
+				<Link href={AppRoutes.Contact}>{Localization.contact}</Link>
 			</NavOption>
 		</Container>
 	);

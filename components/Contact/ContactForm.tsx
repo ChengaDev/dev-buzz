@@ -1,29 +1,16 @@
 import { Formik } from 'formik';
 import styled from 'styled-components';
-import CotanctFormModel from '../../models/ContactForm';
+import CotanctFormModel from 'models/ContactForm';
 import { Form, Button } from 'react-bootstrap';
-import * as Yup from 'yup';
+import ContactFormValidationSchema from 'validationSchemas/ContactForm';
+import Localization from 'localization/components/Contact/ContactForm';
 
-const ContactFormValidationSchema = Yup.object().shape({
-	firstName: Yup.string()
-		.min(2, 'First name is too short')
-		.max(50, 'First name is too long')
-		.required('First name is required'),
-	lastName: Yup.string()
-		.min(2, 'Last name is too short')
-		.max(50, 'Last name is too long')
-		.required('Last name is required'),
-	email: Yup.string().email('Please insert valid email').required('Email name is required')
-});
+const validationSchema = ContactFormValidationSchema();
 
 const ContactForm = () => {
 	return (
 		<div className='container'>
-			<Formik
-				initialValues={new CotanctFormModel()}
-				validationSchema={ContactFormValidationSchema}
-				onSubmit={() => {}}
-			>
+			<Formik initialValues={new CotanctFormModel()} validationSchema={validationSchema} onSubmit={() => {}}>
 				{({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
 					<Form onSubmit={handleSubmit}>
 						<Form.Group controlId='firstName'>
@@ -33,7 +20,7 @@ const ContactForm = () => {
 								onBlur={handleBlur}
 								autoComplete='off'
 								type='text'
-								placeholder='First name'
+								placeholder={Localization.labels.firstName}
 							/>
 							<FieldErrorMessage>
 								{errors.firstName && touched.firstName && errors.firstName}
@@ -47,7 +34,7 @@ const ContactForm = () => {
 								onBlur={handleBlur}
 								autoComplete='off'
 								type='text'
-								placeholder='Last name'
+								placeholder={Localization.labels.lastName}
 							/>
 							<FieldErrorMessage>
 								{errors.lastName && touched.lastName && errors.lastName}
@@ -61,7 +48,7 @@ const ContactForm = () => {
 								onBlur={handleBlur}
 								autoComplete='off'
 								type='text'
-								placeholder='Company'
+								placeholder={Localization.labels.company}
 							/>
 							<FieldErrorMessage>{errors.company && touched.company && errors.company}</FieldErrorMessage>
 						</Form.Group>
@@ -73,17 +60,17 @@ const ContactForm = () => {
 								onBlur={handleBlur}
 								autoComplete='off'
 								type='email'
-								placeholder='Email'
+								placeholder={Localization.labels.email}
 							/>
 							<FieldErrorMessage>{errors.email && touched.email && errors.email}</FieldErrorMessage>
 						</Form.Group>
 
 						<Form.Group controlId='subject'>
-							<Form.Control as='select' placeholder='Select a subject'>
-								<option>New post suggestion</option>
-								<option>Contact the author</option>
-								<option>Feedback</option>
-								<option>Just saying Hi</option>
+							<Form.Control as='select' placeholder={Localization.placeholders.subject}>
+								<option>{Localization.labels.subject.newPost}</option>
+								<option>{Localization.labels.subject.contactAuthor}</option>
+								<option>{Localization.labels.subject.feedback}</option>
+								<option>{Localization.labels.subject.sayingHi}</option>
 							</Form.Control>
 							<FieldErrorMessage></FieldErrorMessage>
 						</Form.Group>
@@ -95,14 +82,14 @@ const ContactForm = () => {
 								onBlur={handleBlur}
 								autoComplete='off'
 								as='textarea'
-								placeholder='Enter your text here'
+								placeholder={Localization.labels.content}
 								rows={5}
 							/>
 							<FieldErrorMessage>{errors.content && touched.content && errors.content}</FieldErrorMessage>
 						</Form.Group>
 
 						<Button disabled={isSubmitting} type='submit' className='mb-2'>
-							Submit
+							{Localization.submitButtonText}
 						</Button>
 					</Form>
 				)}

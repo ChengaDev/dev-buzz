@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialLink from '../../models/SocialLink';
+import SocialLink from 'models/SocialLink';
 import styled from 'styled-components';
 
 interface SocialItemProps {

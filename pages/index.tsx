@@ -1,23 +1,24 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import WritingMachineTitle from '../components/WritingMachineTitle';
-import PostItem from '../components/Shared/PostItem';
-import PostMetadata from '../models/PostMetadata';
-import postsApi from '../api/posts';
+import WritingMachineTitle from 'components/WritingMachineTitle';
+import PostItem from 'components/Shared/PostItem';
+import PostMetadata from 'models/PostMetadata';
+import postsApi from 'api/posts';
+import MetaTitleLocalization from 'localization/MetaTitles';
 
 export default function Home({ posts }) {
 	return (
 		<Container className='container'>
 			<Head>
-				<title>Dev-Buzz | Homepage</title>
+				<title>{MetaTitleLocalization.baseTitle.replace('{pageTitle}', MetaTitleLocalization.homepage)}</title>
 			</Head>
 			<WritingMachineTitle />
 			<PostsTitle>Recent posts</PostsTitle>
 			<Content className='row'>
-				{posts?.map((post, index: number) => {
+				{posts?.map((post) => {
 					return (
 						<PostItem
-							key={`${post.frontmatter.title}_${index}`}
+							key={post.frontmatter.title}
 							post={
 								new PostMetadata(
 									post.frontmatter.title,

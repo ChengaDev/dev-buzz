@@ -1,25 +1,23 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import postsApi from '../api/posts';
+import postsApi from 'api/posts';
 import styled from 'styled-components';
 import Head from 'next/head';
-import PostItem from '../components/Shared/PostItem';
-import PostMetadata from '../models/PostMetadata';
+import PostItem from 'components/Shared/PostItem';
+import PostMetadata from 'models/PostMetadata';
+import MetaTitleLocalization from 'localization/MetaTitles';
 
 const Posts = ({ posts }) => {
 	return (
 		<>
 			<Head>
-				<title>Dev-Buzz | Posts</title>
+				<title>{MetaTitleLocalization.baseTitle.replace('{pageTitle}', MetaTitleLocalization.posts)}</title>
 			</Head>
 			<Container className='container'>
 				<h1>All Posts</h1>
 				<div className='row'>
-					{posts?.map((post, index: number) => {
+					{posts?.map((post) => {
 						return (
 							<PostItem
-								key={`${post.frontmatter.title}_${index}`}
+								key={post.frontmatter.title}
 								post={
 									new PostMetadata(
 										post.frontmatter.title,
