@@ -33,6 +33,7 @@ export default function App({ Component, pageProps }) {
 					type='text/javascript'
 					charSet='utf-8'
 				></script>
+				<link rel='shortcut icon' type='image/x-icon' href='/Icon.ico' />
 			</Head>
 			<Navigation />
 			<FloatingSocialBox />
@@ -132,7 +133,11 @@ const Layout = styled.div`
 		background: #6b92c9 !important;
 
 		img {
-			height: 55px;
+			height: 40px;
+
+			@media (max-width: 910px) {
+				height: 35px;
+			}
 		}
 	}
 `;
