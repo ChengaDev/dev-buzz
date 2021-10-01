@@ -8,6 +8,14 @@
 		"description": "This package allows you to easily track you react components props, without adding any log lines, dubeggers or breaking points, but with very short configuration, and has no effect on prodution environment, so you don't have to be worried about forgetting some debugging code before deploy."
 	},
 	{
+		"name": "hexchange",
+		"npm_url": "https://www.npmjs.com/package/hexchange",
+		"repo_url": "https://www.npmjs.com/package/hexchange",
+		"author": "Chen Gazit",
+		"lisence": "MIT",
+		"description": "This is actually a cli application, or more specifically a colors representations convertor, allows converting from HEX to RBG, or from RGB to HEX, straight forward and very simple to use."
+	},
+	{
 		"name": "shot-clock-simulator",
 		"url": "https://www.24shotclock.com/",
 		"repo_url": "https://github.com/ChengaDev/shotclock",
